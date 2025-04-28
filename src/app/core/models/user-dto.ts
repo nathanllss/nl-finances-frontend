@@ -6,6 +6,6 @@ export interface UserDto {
   phoneNumber: string;
   username: string;
   password: string;
-  active: boolean;
+  active?: boolean;
 
 }

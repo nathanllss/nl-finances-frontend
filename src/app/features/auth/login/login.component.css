@@ -24,3 +24,69 @@ input.example-right-align::-webkit-inner-spin-button {
 input.example-right-align {
   -moz-appearance: textfield;
 }
+
+.example-card {
+    min-width: 400px;
+    max-width: 800px;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.content__button__container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.example-header-image {
+    background-image: url('/assets/images/calcMoneyBag.jpg');
+    background-size: cover;
+    margin-bottom: -5px;
+}
+
+.header__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+small {
+    color: #f44336;
+    font-size: 12px;
+    font-weight: 500;
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding-left: 16px;
+    position: relative;
+}
+
+small::before {
+    content: "⚠";
+    position: absolute;
+    left: 0;
+    margin-right: 5px;
+}
+
+.error-container {
+    margin-top: -15px;
+    margin-bottom: 15px;
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

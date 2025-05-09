@@ -52,6 +52,8 @@ export class LoginComponent {
     loginForm: FormGroup;
     errorMessage?: string;
 
+    // TODO: refatorar html
+
     constructor(
         private fb: FormBuilder,
         private authService: AuthService,
@@ -67,10 +69,11 @@ export class LoginComponent {
 
     onSubmit() {
         if (this.loginForm.valid) {
+            console.log(this.loginForm.value);
             this.authService.login(this.loginForm.value).subscribe({
                 next: () => {
                     this.toastr.success('Login realizado com sucesso!');
-                    this.router.navigate(['/dashboard']);
+                    //this.router.navigate(['/dashboard']);
                 },
                 error: (error) => {
                     let errorMessage = 'Ocorreu um erro ao realizar o login';

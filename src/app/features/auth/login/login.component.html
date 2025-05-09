@@ -37,6 +37,7 @@
                             <button
                                 mat-icon-button
                                 matSuffix
+                                type="button"
                                 (click)="clickEvent($event)"
                                 [attr.aria-label]="'Hide password'"
                                 [attr.aria-pressed]="hide()"
@@ -62,7 +63,7 @@
                 </form>
             </div>
 
-            <!--            <p *ngIf="errorMessage">{{ errorMessage }}</p>-->
+                        <p *ngIf="errorMessage">{{ errorMessage }}</p>
 
             <mat-card-footer>
                 <div class="footer__container">

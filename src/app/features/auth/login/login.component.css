@@ -4,10 +4,6 @@
   width: 100%;
 }
 
-.example-full-width {
-  width: 100%;
-}
-
 .example-container mat-form-field + mat-form-field {
   margin-left: 8px;
 }
@@ -54,39 +50,4 @@ input.example-right-align {
     justify-content: center;
     align-items: center;
     width: 100%;
-}
-
-small {
-    color: #f44336;
-    font-size: 12px;
-    font-weight: 500;
-    display: block;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    padding-left: 16px;
-    position: relative;
-}
-
-small::before {
-    content: "⚠";
-    position: absolute;
-    left: 0;
-    margin-right: 5px;
-}
-
-.error-container {
-    margin-top: -15px;
-    margin-bottom: 15px;
-    animation: fadeIn 0.3s ease-in;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }

@@ -16,6 +16,8 @@ import {
     MatCardHeader,
     MatCardTitle
 } from '@angular/material/card';
+import {FormFieldComponent} from '../../../shared/form-field/form-field.component';
+import {ErrorHandlerService} from '../../../core/services/error.handler.service';
 
 
 @Component({
@@ -36,6 +38,7 @@ import {
         MatCardHeader,
         MatCardFooter,
         MatCardAvatar,
+        FormFieldComponent,
     ],
     changeDetection: ChangeDetectionStrategy.OnPush,
     templateUrl: './login.component.html',
@@ -59,6 +62,8 @@ export class LoginComponent {
         private authService: AuthService,
         private router: Router,
         private toastr: ToastrService,
+        private errorHandler: ErrorHandlerService
+
     ) {
         this.loginForm = this.fb.group({
             login: ['', [Validators.required, Validators.email]],
@@ -73,20 +78,10 @@ export class LoginComponent {
             this.authService.login(this.loginForm.value).subscribe({
                 next: () => {
                     this.toastr.success('Login realizado com sucesso!');
-                    //this.router.navigate(['/dashboard']);
+                    this.router.navigate(['/dashboard']);
                 },
                 error: (error) => {
-                    let errorMessage = 'Ocorreu um erro ao realizar o login';
-
-                    if (error.error?.message) {
-                        errorMessage = error.error.message;
-                    } else if (error.status === 401) {
-                        errorMessage = 'Usuário ou senha inválidos';
-                    } else if (error.status >= 500) {
-                        errorMessage = 'Erro de conexão com o servidor';
-                    }
-
-                    this.toastr.error(errorMessage);
+                    this.errorHandler.handleError(error);
                 }
             });
         } else {

@@ -11,44 +11,28 @@
                 <div>Entre na sua conta:</div>
                 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="example-form">
                     <div>
-                        <mat-form-field class="example-full-width">
-                            <mat-label>Digite seu email:</mat-label>
-                            <input matInput
-                                   id="login"
-                                   type="email"
-                                   formControlName="login"
-                            >
-                        </mat-form-field>
-                        <div class="error-container" *ngIf="loginForm.get('login')?.invalid && loginForm.get('login')?.touched">
-                            <small *ngIf="loginForm.get('login')?.errors?.['required']">Email é obrigatório.</small>
-                            <small *ngIf="loginForm.get('login')?.errors?.['email']">Formato de email inválido.</small>
-                        </div>
+                        <app-form-field
+                            label="Digite seu email:"
+                            field="Email"
+                            id="login"
+                            type="email"
+                            [control]="$any(loginForm.get('login'))"
+                        ></app-form-field>
+
 
                     </div>
 
                     <div>
-                        <mat-form-field class="example-full-width">
-                            <mat-label>Digite sua senha:</mat-label>
-                            <input matInput [type]="hide() ? 'password' : 'text'"
-                                   id="password"
-                                   type="password"
-                                   formControlName="password"
-                            />
-                            <button
-                                mat-icon-button
-                                matSuffix
-                                type="button"
-                                (click)="clickEvent($event)"
-                                [attr.aria-label]="'Hide password'"
-                                [attr.aria-pressed]="hide()"
-                            >
-                                <mat-icon>{{ hide() ? 'visibility_off' : 'visibility' }}</mat-icon>
-                            </button>
-                            <mat-hint align="end">Esqueceu a senha? Clique aqui</mat-hint>
-                        </mat-form-field>
-                        <div class="error-container" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
-                            <small *ngIf="loginForm.get('password')?.errors?.['required']">Senha é obrigatória.</small>
-                        </div>
+                        <app-form-field
+                            label="Digite sua senha:"
+                            field="Senha"
+                            id="password"
+                            type="password"
+                            [control]="$any(loginForm.get('password'))"
+                            hint="Esqueceu a senha? Clique aqui"
+                        ></app-form-field>
+
+
                     </div>
 
                     <div>

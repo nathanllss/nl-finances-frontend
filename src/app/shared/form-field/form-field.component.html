@@ -1,0 +1,21 @@
+<mat-form-field class="example-full-width">
+    <mat-label>{{ label }}</mat-label>
+    <input matInput
+           [id]="id"
+           [type]="type"
+           [formControl]="control"
+           [placeholder]="placeholder">
+    <button *ngIf="type === 'password'"
+            mat-icon-button
+            matSuffix
+            type="button"
+            (click)="onTogglePassword($event)"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hidePassword">
+        <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+    </button>
+    <mat-hint align="end" *ngIf="hint" ><a>{{ hint }}</a></mat-hint>
+</mat-form-field>
+<div class="error-container" *ngIf="control.invalid && control.touched">
+    <small *ngFor="let error of getErrorMessages()">{{ error }}</small>
+</div>

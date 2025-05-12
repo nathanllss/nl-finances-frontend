@@ -28,9 +28,7 @@ import {ErrorHandlerService} from '../../../core/services/error.handler.service'
         RouterLink,
         MatFormFieldModule,
         MatInputModule,
-        MatLabel,
         MatIconModule,
-        MatIconButton,
         MatButtonModule,
         MatCard,
         MatCardContent,
@@ -63,7 +61,6 @@ export class LoginComponent {
         private router: Router,
         private toastr: ToastrService,
         private errorHandler: ErrorHandlerService
-
     ) {
         this.loginForm = this.fb.group({
             login: ['', [Validators.required, Validators.email]],

@@ -8,5 +8,12 @@ export const API_CONFIG = {
     },
     users: {
         me: "/users/me",
-    }
+    },
+    transactions: {
+        getAll: "/transactions",
+        getById: (id: string) => `/transactions/${id}`,
+        create: "/transactions",
+        update: (id: string) => `/transactions/${id}`,
+        delete: (id: string) => `/transactions/${id}`,
+    },
 }

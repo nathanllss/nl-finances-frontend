@@ -1,0 +1,9 @@
+.full-width-table {
+    width: 100%;
+}
+.credit-value {
+    color: green;
+}
+.debit-value {
+    color: red;
+}

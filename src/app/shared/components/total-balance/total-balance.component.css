@@ -1,0 +1,37 @@
+.total-balance-card {
+    width: 100%;
+    height: 100%;
+}
+
+.balance-amount {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin: 16px 0;
+}
+
+.balance-details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+}
+
+.income .label, .expenses .label {
+    margin-right: 10px;
+    color: #666;
+}
+
+.income .value {
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+.expenses .value {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+mat-card {
+    margin: 16px;
+    padding: 16px;
+}

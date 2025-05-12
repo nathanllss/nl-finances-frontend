@@ -11,6 +11,7 @@ export const API_CONFIG = {
     },
     transactions: {
         getAll: "/transactions",
+        getFull: "/transactions/all/full",
         getById: (id: string) => `/transactions/${id}`,
         create: "/transactions",
         update: (id: string) => `/transactions/${id}`,

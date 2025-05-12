@@ -1,23 +1,30 @@
-<mat-card class="total-balance-card">
-    <mat-card-header>
-        <mat-card-title>Saldo Total</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        <div *ngIf="isLoading">Carregando...</div>
-        <div *ngIf="!isLoading">
-            <div class="balance-amount">
+<div class="balance-card">
+    <div class="balance-header">
+        <h2>Balanço Total</h2>
+    </div>
+
+    <div class="balance-content">
+        <div class="balance-item total">
+            <div class="label">Saldo Total</div>
+            <div class="value" [class.positive]="totalBalance >= 0" [class.negative]="totalBalance < 0">
                 {{ totalBalance | currency:'BRL' }}
             </div>
-            <div class="balance-details">
-                <div class="income">
-                    <span class="label">Ganhos Totais:</span>
-                    <span class="value">{{ totalIncome | currency:'BRL' }}</span>
+        </div>
+
+        <div class="balance-details">
+            <div class="balance-item">
+                <div class="label">Receitas</div>
+                <div class="value positive">
+                    {{ totalIncome | currency:'BRL' }}
                 </div>
-                <div class="expenses">
-                    <span class="label">Despesas Totais:</span>
-                    <span class="value">{{ totalExpenses | currency:'BRL' }}</span>
+            </div>
+
+            <div class="balance-item">
+                <div class="label">Despesas</div>
+                <div class="value negative">
+                    {{ totalExpenses | currency:'BRL' }}
                 </div>
             </div>
         </div>
-    </mat-card-content>
-</mat-card>
+    </div>
+</div>

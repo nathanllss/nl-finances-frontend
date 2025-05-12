@@ -4,6 +4,7 @@ import {TotalBalanceComponent} from '../../../shared/components/total-balance/to
 import {
     TransactionsHistoryComponent
 } from '../../../shared/components/transactions-history/transactions-history.component';
+import {ExpenseAnalysisComponent} from '../../../shared/components/expense-analysis/expense-analysis.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,6 +13,7 @@ import {
         MatGridTile,
         TotalBalanceComponent,
         TransactionsHistoryComponent,
+        ExpenseAnalysisComponent,
     ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'

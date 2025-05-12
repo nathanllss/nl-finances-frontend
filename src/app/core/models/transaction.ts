@@ -8,6 +8,7 @@ export enum TransactionType {
 }
 
 export interface Transaction {
+    id: string | null;
     title: string;
     description: string;
     category: Category;
@@ -19,6 +20,7 @@ export interface Transaction {
 
 
 export interface TransactionSummary {
+    id: string | null;
     title: string;
     description: string;
     type: 'INCOME' | 'EXPENSE' | 'SAVING' | 'TRANSFER';

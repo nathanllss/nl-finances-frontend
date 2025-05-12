@@ -1,37 +1,71 @@
-.total-balance-card {
+:host {
+    display: block;
     width: 100%;
     height: 100%;
 }
 
-.balance-amount {
-    font-size: 24px;
-    font-weight: bold;
+.balance-card {
+    height: 100%;
+    background: #f5f5f5;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.balance-header {
+    margin-bottom: 24px;
+}
+
+.balance-header h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 500;
     color: #333;
-    margin: 16px 0;
+}
+
+.balance-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.balance-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.balance-item.total {
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 24px;
+    margin-bottom: 8px;
+}
+
+.label {
+    font-size: 14px;
+    color: #666;
+}
+
+.value {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.total .value {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.positive {
+    color: #4CAF50;
+}
+
+.negative {
+    color: #f44336;
 }
 
 .balance-details {
     display: flex;
-    justify-content: space-between;
-    margin-top: 16px;
-}
-
-.income .label, .expenses .label {
-    margin-right: 10px;
-    color: #666;
-}
-
-.income .value {
-    color: #2ecc71;
-    font-weight: bold;
-}
-
-.expenses .value {
-    color: #e74c3c;
-    font-weight: bold;
-}
-
-mat-card {
-    margin: 16px;
-    padding: 16px;
+    flex-direction: column;
+    gap: 16px;
 }

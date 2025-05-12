@@ -16,7 +16,7 @@
 }
 
 .balance-header {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     flex-shrink: 0;
 }
 
@@ -30,22 +30,21 @@
 .balance-content {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 16px;
     flex: 1;
     min-height: 0;
     overflow: auto;
-
 }
 
 .balance-item {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
 }
 
 .balance-item.total {
     border-bottom: 1px solid #e0e0e0;
-    padding-bottom: 24px;
+    padding-bottom: 20px;
     margin-bottom: 8px;
 }
 
@@ -75,5 +74,5 @@
 .balance-details {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
 }

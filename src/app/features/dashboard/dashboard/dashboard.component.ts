@@ -14,6 +14,7 @@ import {ExpenseAnalysisComponent} from '../../../shared/components/expense-analy
         TotalBalanceComponent,
         TransactionsHistoryComponent,
         ExpenseAnalysisComponent,
+        ExpenseAnalysisComponent,
     ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'

@@ -14,7 +14,7 @@ export class TransactionService {
     constructor(private http: HttpClient) {}
 
     getTransactions(page: number = 0, size: number = 10): Observable<Page<TransactionSummary>> {
-        return this.http.get<Page<TransactionSummary>>(`${this.apiUrl}?page=${page}&size=${size}`);
+        return this.http.get<Page<TransactionSummary>>(`${this.apiUrl}?page=${page}&size=${size}&sort=moment,desc`);
     }
 
     getAllTransactions(): Observable<TransactionSummary[]> {

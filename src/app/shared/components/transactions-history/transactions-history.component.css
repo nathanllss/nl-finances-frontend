@@ -7,9 +7,89 @@
 .full-width-table {
     width: 100%;
 }
-.credit-value {
-    color: green;
+
+.INCOME {
+    color: #4CAF50;
 }
-.debit-value {
-    color: red;
+
+.EXPENSE {
+    color: #F44336;
+}
+
+.SAVING {
+    color: #2196F3;
+}
+
+.TRANSFER {
+    color: #FF9800;
+}
+
+.transaction-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.transaction-icon mat-icon {
+    margin-right: 0;
+}
+
+.recurring-icon {
+    font-size: 20px;
+    height: 20px;
+    width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.recurring-yes {
+    color: #4CAF50; /* Green */
+}
+
+.recurring-no {
+    color: #F44336; /* Red */
+}
+
+.value-cell {
+    font-weight: 500;
+}
+
+.mat-column-type {
+    flex: 0 0 60px !important;
+    min-width: 60px;
+    justify-content: center;
+}
+
+.mat-column-title {
+    flex: 1 0 200px !important;
+}
+
+.mat-column-description {
+    flex: 1 0 300px !important;
+}
+
+.mat-column-moment {
+    flex: 1 0 120px !important;
+}
+
+.mat-column-transactionValue {
+    flex: 2 0 120px !important;
+    justify-content: center;
+}
+
+.mat-column-recurring {
+    flex: 0 0 100px !important;
+    justify-content: center;
+}
+
+.mat-cell {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.mat-row:hover .mat-cell {
+    white-space: normal;
+    word-wrap: break-word;
 }

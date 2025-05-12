@@ -9,10 +9,12 @@ import {
     MatHeaderRow, MatHeaderRowDef, MatRow, MatRowDef,
     MatTable, MatTableDataSource
 } from '@angular/material/table';
-import {CurrencyPipe, NgClass} from '@angular/common';
+import {CurrencyPipe, DatePipe, NgClass, NgIf} from '@angular/common';
 import {TransactionSummary} from '../../../core/models/transaction';
 import {TransactionService} from '../../../core/services/transaction.service';
 import {MatPaginator} from '@angular/material/paginator';
+
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-transactions-history',
@@ -33,8 +35,11 @@ import {MatPaginator} from '@angular/material/paginator';
         MatHeaderRowDef,
         MatRowDef,
         CurrencyPipe,
+        DatePipe,
         MatPaginator,
-        MatPaginator
+        MatPaginator,
+        MatIcon,
+        NgIf,
     ],
   templateUrl: './transactions-history.component.html',
   styleUrl: './transactions-history.component.css'
@@ -45,6 +50,8 @@ export class TransactionsHistoryComponent {
     currentPage = 0;
     pageSize = 10;
     totalElements = 0;
+    sortBy = 'moment';
+    sortDirection = 'desc';
 
     constructor(private transactionService: TransactionService) {}
 
@@ -53,7 +60,10 @@ export class TransactionsHistoryComponent {
     }
 
     loadTransactions() {
-        this.transactionService.getTransactions(this.currentPage, this.pageSize).subscribe({
+        this.transactionService.getTransactions(
+            this.currentPage,
+            this.pageSize,
+        ).subscribe({
             next: (page) => {
                 this.dataSource.data = page.content;
                 this.totalElements = page.totalElements;
@@ -64,7 +74,6 @@ export class TransactionsHistoryComponent {
         });
     }
 
-    // Optional: Add pagination handling
     onPageChange(event: any) {
         this.currentPage = event.pageIndex;
         this.pageSize = event.pageSize;

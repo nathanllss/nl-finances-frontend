@@ -7,32 +7,38 @@
 
             <ng-container matColumnDef="type">
                 <mat-header-cell *matHeaderCellDef>Tipo</mat-header-cell>
-                <mat-cell *matCellDef="let transaction">
-                    <span [ngClass]="{'INCOME': transaction.type === 'INCOME', 'EXPENSE': transaction.type === 'EXPENSE'}">
-                        {{transaction.type === 'INCOME' ? 'Receita' : 'Despesa'}}
-                    </span>
+                <mat-cell *matCellDef="let transaction" class="mat-column-type">
+                    <mat-icon class="transaction-icon" [ngClass]="transaction.type">
+                        {{transaction.type === 'INCOME' ? 'arrow_upward' :
+                           transaction.type === 'EXPENSE' ? 'arrow_downward' :
+                           transaction.type === 'SAVING' ? 'savings' : 'sync_alt'}}
+                    </mat-icon>
                 </mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="title">
                 <mat-header-cell *matHeaderCellDef>Título</mat-header-cell>
-                <mat-cell *matCellDef="let transaction">{{transaction.title}}</mat-cell>
+                <mat-cell *matCellDef="let transaction" class="mat-column-title">{{transaction.title}}</mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="description">
                 <mat-header-cell *matHeaderCellDef>Descrição</mat-header-cell>
-                <mat-cell *matCellDef="let transaction">{{transaction.description}}</mat-cell>
+                <mat-cell *matCellDef="let transaction" class="mat-column-description">{{transaction.description}}</mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="moment">
-                <mat-header-cell *matHeaderCellDef>Data</mat-header-cell>
-                <mat-cell *matCellDef="let transaction">{{transaction.moment}}</mat-cell>
+                <mat-header-cell *matHeaderCellDef>
+                    Data <mat-icon class="sort-icon">arrow_downward</mat-icon>
+                </mat-header-cell>
+                <mat-cell *matCellDef="let transaction" class="mat-column-moment">
+                    {{transaction.moment | date:'dd/MM/yyyy HH:mm:ss'}}
+                </mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="transactionValue">
                 <mat-header-cell *matHeaderCellDef>Valor</mat-header-cell>
-                <mat-cell *matCellDef="let transaction">
-                    <span [ngClass]="{'INCOME': transaction.type === 'INCOME', 'EXPENSE': transaction.type === 'EXPENSE'}">
+                <mat-cell *matCellDef="let transaction" class="mat-column-transactionValue">
+                    <span class="value-cell" [ngClass]="transaction.type">
                         {{transaction.transactionValue | currency:'BRL'}}
                     </span>
                 </mat-cell>
@@ -40,10 +46,9 @@
 
             <ng-container matColumnDef="recurring">
                 <mat-header-cell *matHeaderCellDef>Recorrente</mat-header-cell>
-                <mat-cell *matCellDef="let transaction">
-                    <span [ngClass]="{'INCOME': transaction.type === 'INCOME', 'EXPENSE': transaction.type === 'EXPENSE'}">
-                        {{transaction.recurring ? 'Sim' : 'Não'}}
-                    </span>
+                <mat-cell *matCellDef="let transaction" class="mat-column-recurring">
+                    <mat-icon *ngIf="transaction.recurring" class="recurring-icon recurring-yes">check_circle</mat-icon>
+                    <mat-icon *ngIf="!transaction.recurring" class="recurring-icon recurring-no">cancel</mat-icon>
                 </mat-cell>
             </ng-container>
 
